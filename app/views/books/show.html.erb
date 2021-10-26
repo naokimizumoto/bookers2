@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <%= render 'books/left', book: @new_book %>
+
+    <div class="col-md-8 offset-md-1">
+
+    <h2>Book detail</h2>
+    <table class="table">
+        <tbody>
+            <tr>
+                <td><%=@book.user.name%></td>
+                <td><%=@book.title%></td>
+                 <td><%=@book.body%></td>
+                  <% if @book.user == current_user %>
+                 <td><%=link_to "Edit", edit_book_path(@book)%></td>
+                 <td><%=link_to "Destroy",books_path, method: :delete %></td>
+                  <% end %>
+
+            </tr>
+        </tbody>
+
+    </table>
+
+    </div>
+  </div>
+</div>
