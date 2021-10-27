@@ -1,6 +1,9 @@
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
 <div class="container">
   <div class="row">
-    <%= render 'books/left', book: @new_book %>
+    <%= render 'books/left', book: @new_book, user: @user%>
 
     <div class="col-md-8 offset-md-1">
 
@@ -13,7 +16,7 @@
                  <td><%=@book.body%></td>
                   <% if @book.user == current_user %>
                  <td><%=link_to "Edit", edit_book_path(@book)%></td>
-                 <td><%=link_to "Destroy",books_path, method: :delete %></td>
+                 <td><%=link_to "Destroy",book_path(@book), method: :delete %></td>
                   <% end %>
 
             </tr>

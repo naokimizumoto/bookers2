@@ -4,17 +4,23 @@
 <h1>User info</h1>
 <!-- form_with部分 -->
 <%= form_with model: @user, local:true do |f| %>
-  <h4>name</h4>
-  <%= f.text_field :title %>
-<h4>Image</h4>
-<%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%>
+   <div class="form-group">
+    <label for="user_name">Name</label>
+      <input class="form-control name" type="text" value="naokimizumoto" name="user[name]" id="user_name">
+   </div>
+   <div class="form-group">
+    <label for="user_image">Image</label>
+      <input value="{}" data-reference="b7b72831d98283e1f87600243fad290d" type="hidden" name="user[profile_image]"><input class="form-control-file user_image" data-reference="b7b72831d98283e1f87600243fad290d" include_hidden="false" type="file" name="user[profile_image]" id="user_profile_image">
+   </div>
+   <div class="form-group">
+     <label for="user_introduction">Introduction</label>
+       <textarea class="form-control introduction" name="user[introduction]" id="user_introduction"></textarea>
+   </div>
+   <div class="form-group">
+     <input type="submit" name="commit" value="Update User" class="btn btn-secondary" data-disable-with="Update User">
+   </div>
 
-  <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
-
-  <h4>Introduction</h4>
-  <%= f.text_area :body %>
-  <%= f.submit 'Updade User' %>
-<% end %>
+  <% end %>
   </div>
  </div>
 </div>
